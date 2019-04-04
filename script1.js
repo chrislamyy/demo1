@@ -141,12 +141,18 @@ function requestVideoPlaylist(playlistId) {
       // Loop through videos and append output
       playListItems.forEach(item => {
         const videoId = item.snippet.resourceId.videoId;
+        if(videoId.snippet.tags.indexOf("sustainability")){
+          output += `
+            <div class="col s3">
+            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+          `;
+        }
+        else{
+          console.log("no sustainability vids");
+        }
 
-        output += `
-          <div class="col s3">
-          <iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        `;
+
       });
 
       // Output videos
