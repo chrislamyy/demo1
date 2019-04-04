@@ -134,7 +134,7 @@ function requestVideoPlaylist(playlistId) {
   request.execute(response => {
     console.log(response);
     const playListItems = response.result.items;
-    if (playListItems.snippet.tags = "sustainability") {
+    if (playListItems.snippet.tags.indexOf("sustainability") {
       let output = '<br><h4 class="center-align">Latest Videos</h4>';
 
       // Loop through videos and append output
