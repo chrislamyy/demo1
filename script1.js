@@ -1,5 +1,6 @@
 // Options
-const CLIENT_ID = '556486605123-7eicgifu3hl8b6gt63bj83s0ua2u01sd.apps.googleusercontent.com';
+const CLIENT_ID = '419620508529-9ut8bdiht5nnd6mhficgm5liitedtm1t.apps.googleusercontent.com';
+
 const DISCOVERY_DOCS = [
   'https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest'
 ];
@@ -134,7 +135,7 @@ function requestVideoPlaylist(playlistId) {
   request.execute(response => {
     console.log(response);
     const playListItems = response.result.items;
-    if (playListItems.item.snippet.tags.indexOf("sustainability") {
+    if (playListItems) {
       let output = '<br><h4 class="center-align">Latest Videos</h4>';
 
       // Loop through videos and append output
@@ -151,7 +152,7 @@ function requestVideoPlaylist(playlistId) {
       // Output videos
       videoContainer.innerHTML = output;
     } else {
-      videoContainer.innerHTML = 'No Sustainable Uploaded Videos';
+      videoContainer.innerHTML = 'No Uploaded Videos';
     }
   });
 }
