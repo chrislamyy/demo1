@@ -81,10 +81,10 @@ function showChannelData(data) {
 
 // Get channel from API
 function getChannel(channel) {
-  gapi.client.youtube.channels
+  gapi.client.youtube.videos
     .list({
       part: 'snippet,contentDetails,statistics',
-      forUsername: channel
+      id: channel
     })
     .then(response => {
       console.log(response);
@@ -93,15 +93,15 @@ function getChannel(channel) {
       const output = `
         <ul class="collection">
           <li class="collection-item">Title: ${channel.snippet.title}</li>
-          <li class="collection-item">ID: ${channel.id}</li>
-          <li class="collection-item">Subscribers: ${numberWithCommas(
-            channel.statistics.subscriberCount
-          )}</li>
+          <li class="collection-item">Tags: ${channel.snippet.tags}</li>
           <li class="collection-item">Views: ${numberWithCommas(
             channel.statistics.viewCount
           )}</li>
-          <li class="collection-item">Videos: ${numberWithCommas(
-            channel.statistics.videoCount
+          <li class="collection-item">Likes: ${numberWithCommas(
+            channel.statistics.likeCount
+          )}</li>
+          <li class="collection-item">Dislikes: ${numberWithCommas(
+            channel.statistics.dislikeCount
           )}</li>
         </ul>
         <p>${channel.snippet.description}</p>
