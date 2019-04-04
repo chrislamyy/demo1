@@ -151,7 +151,7 @@ function requestVideoPlaylist(playlistId) {
       // Output videos
       videoContainer.innerHTML = output;
     } else {
-      videoContainer.innerHTML = 'No Uploaded Videos';
+      videoContainer.innerHTML = 'No Sustainable Uploaded Videos';
     }
   });
 }
